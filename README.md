@@ -1,1 +1,1 @@
-# pronunciation_extension
+# chrome_extension
