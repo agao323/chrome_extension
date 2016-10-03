@@ -94,23 +94,31 @@
 
 function wow() {
   alert('hello');
-   alert('hello');
-    alert('hello');
-     alert('hello');
-      alert('hello');
-       alert('hello');
-        alert('hello');
-         alert('hello');
-          alert('hello');
 }
 
 document.addEventListener('DOMContentLoaded', function() {
 
-  var link = document.getElementById('search_link');
+  var link = document.getElementById('new_tab');
+  var del = document.getElementById('delete_tab');
+  var lang = document.getElementById('language');
 
   link.addEventListener('click', function() {
-    wow();
+    chrome.tabs.create({});
   });
+
+  del.addEventListener('click', function() {
+    chrome.tabs.getSelected(function(tab) {
+      chrome.tabs.remove(tab.id, function() {});
+    });
+  });
+
+  // lang.addEventListener('click', function() {
+  //   chrome.tabs.getSelected(function(tab) {
+  //     chrome.tabs.detectLanguage(tab.id, function(string language) {
+
+  //     });
+  //   });
+  // });
 
   // getCurrentTabUrl(function(url) {
   //   // Put the image URL in Google search.
